@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ashwin Satish – Data Scientist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --card: rgba(255,255,255,.85);
+      --text: #222;
+      --accent: #667eea;
+      --accent-hover: #5a67d8;
+      --sub: #666;
+      --shadow: rgba(0,0,0,.08);
+      --border: rgba(0,0,0,.06);
+    }
+    [data-theme="dark"] {
+      --bg: #0a0a0a;
+      --card: rgba(255,255,255,.05);
+      --text: #e0e0e0;
+      --accent: #8b5cf6;
+      --accent-hover: #a78bfa;
+      --sub: #9ca3af;
+      --shadow: rgba(0,0,0,.3);
+      --border: rgba(255,255,255,.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transition: background .3s, color .3s;
+      line-height: 1.6;
+    }
+    a { 
+      color: var(--accent); 
+      text-decoration: none;
+      transition: color .2s;
+    }
+    a:hover { color: var(--accent-hover); }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 20px var(--shadow);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+    }
+    nav a {
+      font-weight: 500;
+      opacity: .8;
+      transition: opacity .2s;
+    }
+    nav a:hover { opacity: 1; }
+
+    /* Hero with particles */
+    header {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      background: linear-gradient(135deg, var(--bg) 0%, rgba(102,126,234,.05) 100%);
+    }
+    
+    #particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    
+    .hero-content {
+      animation: slideUp 1s ease-out;
+      max-width: 700px;
+    }
+    
+    @keyframes slideUp {
+      from { 
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    header h1 { 
+      font-size: clamp(2.5rem, 7vw, 4.5rem); 
+      font-weight: 700; 
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    
+    .tagline { 
+      font-size: 1.3rem; 
+      color: var(--sub);
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+    
+    .stats {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    .stat-label {
+      font-size: .9rem;
+      color: var(--sub);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: .75rem 2rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all .2s;
+      box-shadow: 0 4px 15px rgba(102,126,234,.3);
+    }
+    .btn:hover { 
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102,126,234,.4);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn-outline:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    section { 
+      max-width: 1100px; 
+      margin: 0 auto; 
+      padding: 5rem 2rem; 
+      position: relative; 
+    }
+    
+    h2 { 
+      font-size: 2rem; 
+      font-weight: 700; 
+      margin-bottom: 3rem; 
+      letter-spacing: -1px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .timeline:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: var(--border);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-bottom: 3rem;
+    }
+    
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -2.4rem;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+    }
+    
+    .timeline-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: .5rem;
+    }
+    
+    .timeline-meta {
+      color: var(--sub);
+      font-size: .9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .timeline-item ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .timeline-item li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: .5rem;
+      color: var(--sub);
+    }
+    
+    .timeline-item li:before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    
+    /* Project Cards */
+    .project-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+    
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all .3s;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px var(--shadow);
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      display: grid;
+      place-items: center;
+      font-size: 3rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-image img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+    
+    .project-image.dark-bg {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    
+    .project-image.orange-bg {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    }
+    
+    .project-image.blue-bg {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+    }
+    
+    .project-content h3 {
+      margin-bottom: .5rem;
+      font-size: 1.2rem;
+    }
+    
+    .project-content p {
+      color: var(--sub);
+      font-size: .95rem;
+      margin-bottom: 1rem;
+    }
+    
+    .project-stats {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .project-stat {
+      background: var(--bg);
+      padding: .3rem .8rem;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .project-links a {
+      font-size: .9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+    }
+    
+    /* Skills */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .skill-category h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    
+    .skill-tag {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: .4rem 1rem;
+      border-radius: 20px;
+      font-size: .85rem;
+      transition: all .2s;
+    }
+    
+    .skill-tag:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    /* Contact */
+    .contact-section {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+    
+    .contact-section h2 {
+      margin-bottom: 2rem;
+    }
+    
+    .contact-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .8rem 1.5rem;
+      background: var(--bg);
+      border-radius: 12px;
+      font-weight: 500;
+      transition: all .2s;
+      border: 2px solid transparent;
+    }
+    
+    .contact-link:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+    
+    .contact-link span {
+      font-size: 1.2rem;
+    }
+    
+    footer { 
+      text-align: center; 
+      padding: 3rem 1rem; 
+      background: var(--card);
+      color: var(--sub);
+    }
+
+    #themeToggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      z-index: 100;
+      transition: all .2s;
+      font-size: 1.3rem;
+    }
+    
+    #themeToggle:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul { gap: 1rem; font-size: .9rem; }
+      .stats { gap: 2rem; }
+      .timeline { padding-left: 1rem; }
+      .timeline:before { display: none; }
+      .timeline-item:before { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<button id="themeToggle" aria-label="Toggle theme">🌙</button>
+
+<nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <canvas id="particles"></canvas>
+  <div class="hero-content">
+    <h1>Ashwin Satish</h1>
+    <p class="tagline">Turning messy data into products that matter</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Lyme Detection</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2000+</div>
+        <div class="stat-label">Procedures Saved</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">26%</div>
+        <div class="stat-label">Accuracy Boost</div>
+      </div>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn" href="Resume - DS.pdf" download>Download Resume</a>
+      <a class="btn btn-outline" href="https://github.com/ashwinsatish" target="_blank">View GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p style="text-align: center; max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: var(--sub);">
+    MS Data Science student at Northeastern with a track record of shipping ML products that save lives and money. 
+    Currently building tools that solve real problems—from detecting disease cells with computer vision
+    to optimizing Pokémon teams with LLMs. I believe the best code is the code that ships.
+  </p>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Machine Learning Researcher</h3>
+      <p class="timeline-meta">Northeastern University · Jan 2025 - Present · Boston, MA</p>
+      <ul>
+        <li>Achieved 100% true positive Lyme cell detection with 7-CNN ensemble (TensorFlow)</li>
+        <li>Automated 5,000+ cell reconstructions with OpenCV, saving weeks of manual work</li>
+        <li>Boosted accuracy 13% via augmentation & L2/dropout regularization</li>
+      </ul>
+    </div>
+    
+    <div class="timeline-item">
+      <h3>Teaching Assistant</h3>
+      <p class="timeline-meta">Northeastern University · Aug 2025 - Present · Boston, MA</p>
+      <ul>
+        <li>Mentored 300+ students in ML foundations via NumPy demos & problem sessions</li>
+        <li>Led 4+ weekly office hours on optimization, low-rank approximation, regression</li>
+      </ul>
+    </div>
+    
+    <div class="timeline-item">
+      <h3>Data Science Intern</h3>
+      <p class="timeline-meta">CarerAI · July 2023 - May 2024 · Gurgaon, India</p>
+      <ul>
+        <li>Prevented 2,000+ unnecessary procedures via KNN analysis of patient records</li>
+        <li>Improved classification accuracy 26.4% through feature engineering</li>
+        <li>Reduced false positives 20% using DBSCAN clustering for outlier removal</li>
+      </ul>
+    </div>
+    
+    <div class="timeline-item">
+      <h3>Lead Developer</h3>
+      <p class="timeline-meta">Christ Consulting · July 2022 - April 2023 · Bangalore, India</p>
+      <ul>
+        <li>Migrated paper system to AWS with 100,000+ MySQL records</li>
+        <li>Improved project success rates 20% via interactive risk dashboards</li>
+        <li>Optimized task completion 24% with weighted performance indexing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <div class="project-image dark-bg">
+        <img src="metamatch_logo.png" alt="MetaMatch Logo">
+      </div>
+      <div class="project-content">
+        <h3>MetaMatch - Pokémon Team Analyzer</h3>
+        <p>LLM-powered pipeline analyzing top 300 meta threats in seconds vs hours manually</p>
+        <div class="project-stats">
+          <span class="project-stat">30% token reduction</span>
+          <span class="project-stat">Real-time updates</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ashwinsatish/poke-analyzer" target="_blank">→ GitHub</a>
+          <a href="https://poke-analyzer-demo.vercel.app" target="_blank">→ Demo</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="project-card">
+      <div class="project-image blue-bg">
+        <img src="aceai_logo.png" alt="AceAI Logo">
+      </div>
+      <div class="project-content">
+        <h3>AceAI - Card Classifier</h3>
+        <p>Real-time 52-card recognition from webcam for casino analytics & game automation</p>
+        <div class="project-stats">
+          <span class="project-stat">85% TPR</span>
+          <span class="project-stat"><100ms latency</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ashwinsatish/aceai" target="_blank">→ GitHub</a>
+          <a href="https://aceai-demo.vercel.app" target="_blank">→ Demo</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="project-card">
+      <div class="project-image orange-bg">
+        <img src="slamdunk_logo.png" alt="SlamDunk Logo">
+      </div>
+      <div class="project-content">
+        <h3>SlamDunk Insights</h3>
+        <p>Clustered 20,000+ games to surface 3 winning strategies with matchup predictions</p>
+        <div class="project-stats">
+          <span class="project-stat">8% vs Vegas</span>
+          <span class="project-stat">K-means clustering</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ashwinsatish/nba-predict" target="_blank">→ GitHub</a>
+          <a href="https://nba-predict.streamlit.app" target="_blank">→ App</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills-container">
+    <div class="skill-category">
+      <h3>Languages & ML</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">Scikit-learn</span>
+      </div>
+    </div>
+    
+    <div class="skill-category">
+      <h3>Data & Analytics</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">PySpark</span>
+        <span class="skill-tag">OpenCV</span>
+        <span class="skill-tag">Hugging Face</span>
+      </div>
+    </div>
+    
+    <div class="skill-category">
+      <h3>Cloud & Tools</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">Azure</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Snowflake</span>
+      </div>
+    </div>
+    
+    <div class="skill-category">
+      <h3>Visualization</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Seaborn</span>
+        <span class="skill-tag">Plotly</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-section">
+    <h2>Let's Connect</h2>
+    <div class="contact-links">
+      <a href="mailto:satish.ash@northeastern.edu" class="contact-link">
+        <span>📧</span> satish.ash@northeastern.edu
+      </a>
+      <a href="https://linkedin.com/in/ashwinsatish" target="_blank" class="contact-link">
+        <span>💼</span> LinkedIn
+      </a>
+      <a href="https://github.com/ashwinsatish" target="_blank" class="contact-link">
+        <span>🚀</span> GitHub
+      </a>
+      <a href="tel:+18578320951" class="contact-link">
+        <span>📱</span> (857) 832-0951
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Ashwin Satish · Built with passion & shipped with purpose</p>
+</footer>
+
+<script>
+  // Particle animation
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  const particles = [];
+  const particleCount = 50;
+  
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.radius = Math.random() * 2 + 1;
+      this.opacity = Math.random() * 0.5 + 0.2;
+    }
+    
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      
+      if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
+      if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+    }
+    
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(102, 126, 234, ${this.opacity})`;
+      ctx.fill();
+    }
+  }
+  
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+  
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(particle => {
+      particle.update();
+      particle.draw();
+    });
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
+  
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+  
+  // Theme toggle
+  const btn = document.getElementById('themeToggle');
+  const stored = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', stored);
+  btn.textContent = stored === 'dark' ? '☀️' : '🌙';
+  
+  btn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    btn.textContent = next === 'dark' ? '☀️' : '🌙';
+  });
+  
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
