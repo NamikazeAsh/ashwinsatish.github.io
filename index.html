@@ -284,6 +284,8 @@
       transition: all .3s;
       cursor: pointer;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
     
     .project-card:hover {
@@ -324,6 +326,9 @@
     
     .project-content {
       padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
     
     .project-content h3 {
@@ -335,12 +340,13 @@
       color: var(--sub);
       font-size: .95rem;
       margin-bottom: 1rem;
+      flex: 1;
     }
     
     .project-stats {
       display: flex;
       gap: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
     
     .project-stat {
@@ -355,6 +361,7 @@
     .project-links {
       display: flex;
       gap: 1rem;
+      margin-top: auto;
     }
     
     .project-links a {
@@ -579,7 +586,7 @@
   <div class="project-grid">
     <div class="project-card">
       <div class="project-image dark-bg">
-        <img src="metamatch_logo.png" alt="MetaMatch Logo">
+        <img src="images/metamatch_logo.png" alt="MetaMatch Logo">
       </div>
       <div class="project-content">
         <h3>MetaMatch - Pokémon Team Analyzer</h3>
@@ -589,14 +596,14 @@
           <span class="project-stat">Real-time updates</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/ashwinsatish/poke-analyzer" target="_blank">→ GitHub</a>
+          <a href="https://github.com/NamikazeAsh/MetaMatch" target="_blank">→ GitHub</a>
         </div>
       </div>
     </div>
     
     <div class="project-card">
       <div class="project-image blue-bg">
-        <img src="aceai_logo.png" alt="AceAI Logo">
+        <img src="images/aceai_logo.png" alt="AceAI Logo">
       </div>
       <div class="project-content">
         <h3>AceAI - Card Classifier</h3>
@@ -606,14 +613,14 @@
           <span class="project-stat"><100ms latency</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/ashwinsatish/aceai" target="_blank">→ GitHub</a>
+          <a href="https://github.com/NamikazeAsh/AceAI" target="_blank">→ GitHub</a>
         </div>
       </div>
     </div>
     
     <div class="project-card">
       <div class="project-image orange-bg">
-        <img src="slamdunk_logo.png" alt="SlamDunk Logo">
+        <img src="images/slamdunk_logo.png" alt="SlamDunk Logo">
       </div>
       <div class="project-content">
         <h3>SlamDunk Insights</h3>
@@ -623,7 +630,7 @@
           <span class="project-stat">K-means clustering</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/ashwinsatish/nba-predict" target="_blank">→ GitHub</a>
+          <a href="https://github.com/NamikazeAsh/SlamDunk-Insights" target="_blank">→ GitHub</a>
         </div>
       </div>
     </div>
